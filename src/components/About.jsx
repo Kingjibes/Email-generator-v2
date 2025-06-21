@@ -66,7 +66,7 @@ const About = () => {
            <Anchor className="w-10 h-10 mr-3 text-primary" /> About CipherMail
           </motion.h1>
           <motion.p 
-            className="text-lg text-foreground max-w-3xl mx-auto font-medium" /* Changed from text-muted-foreground */
+            className="text-lg text-foreground max-w-3xl mx-auto font-medium"
             initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{delay:0.2, duration: 0.5}}
           >
             CipherMail is your first mate for navigating the digital seas, a powerful, privacy-first tool designed to effortlessly generate a multitude of unique email aliases. It's perfect for keeping your online identity safe, managing multiple service sign-ups, or organizing your digital communications like a seasoned captain.
@@ -97,7 +97,7 @@ const About = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-center text-foreground/90 font-medium"> {/* Bolder description text */}
+                    <CardDescription className="text-center text-foreground/90 font-medium">
                       {feature.description}
                     </CardDescription>
                   </CardContent>
@@ -113,7 +113,7 @@ const About = () => {
               <CardTitle className="text-3xl font-extrabold gradient-text">
                 How It Works: Smooth Sailing
               </CardTitle>
-              <CardDescription className="text-md text-foreground/90 font-medium"> {/* Bolder description text */}
+              <CardDescription className="text-md text-foreground/90 font-medium">
                 A simple, secure, three-step voyage to your email aliases.
               </CardDescription>
             </CardHeader>
@@ -140,7 +140,7 @@ const About = () => {
                     <h3 className="text-lg font-semibold text-primary mb-1.5">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-foreground font-medium"> {/* Bolder description text */}
+                    <p className="text-sm text-foreground font-medium">
                       {step.desc}
                     </p>
                   </motion.div>
@@ -164,13 +164,13 @@ const About = () => {
                 >
                  <img 
                     class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-accent object-cover shadow-lg"
-                    alt="Hackerpro, creator of CipherMail" src="https://images.unsplash.com/photo-1606036981416-c3dd4f74ba89" />
+                    alt="Hackerpro, creator of CipherMail" src="https://images.unsplash.com/photo-1666014214619-b0a572963b88" />
                 </motion.div>
                 <div>
                   <h3 className="text-xl font-semibold text-primary mb-1">
                     Crafted by Hackerpro
                   </h3>
-                  <p className="text-foreground/90 leading-relaxed font-medium"> {/* Bolder description text */}
+                  <p className="text-foreground/90 leading-relaxed font-medium">
                     CipherMail was developed with a deep commitment to user privacy, simplicity, and robust functionality, like a well-built ship. My goal is to provide tools that empower users while respecting their data. Feel free to send a message in a bottle (or use the contact form!) with feedback or suggestions!
                   </p>
                 </div>
