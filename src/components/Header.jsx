@@ -32,6 +32,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     >
       <div className="page-container py-3">
         <div className="flex items-center justify-between">
+          {/* Logo and brand section - unchanged */}
           <motion.div 
             className="flex items-center space-x-3.5 cursor-pointer"
             whileHover={{ scale: 1.02 }}
@@ -88,56 +89,84 @@ const Header = ({ currentPage, setCurrentPage }) => {
               );
             })}
 
-            <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-foreground hover:bg-primary/10 hover:text-primary focus-visible:ring-primary">
-                  <Menu className="w-6 h-6" />
-                  <span className="sr-only">Open navigation menu</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-popover border-border shadow-xl mt-2">
-                <DropdownMenuLabel className="font-semibold text-muted-foreground">Navigation</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                {/* Generator link for small screens where main button is hidden */}
-                 {mainNavItems.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <DropdownMenuItem
-                      key={`menu-${item.id}`}
-                      onClick={() => {
-                        setCurrentPage(item.id);
-                        setIsMenuOpen(false);
-                      }}
-                      className={`sm:hidden flex items-center space-x-2 py-2 px-3 text-sm font-medium transition-colors ${currentPage === item.id ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-accent hover:text-accent-foreground'}`}
-                      aria-current={currentPage === item.id ? "page" : undefined}
-                    >
-                      <Icon className={`w-4 h-4 ${currentPage === item.id ? 'text-primary' : 'text-muted-foreground group-hover:text-accent-foreground'}`} />
-                      <span>{item.label}</span>
-                    </DropdownMenuItem>
-                  );
-                 })}
-                 {mainNavItems.length > 0 && menuNavItems.length > 0 && <DropdownMenuSeparator className="sm:hidden"/>}
+            {/* Fixed Dropdown Menu Section */}
+            <div className="sm:hidden"> {/* Only show on small screens */}
+              <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+                <DropdownMenuTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="text-foreground hover:bg-primary/10 hover:text-primary focus-visible:ring-primary"
+                  >
+                    <Menu className="h-5 w-5" />
+                    <span className="sr-only">Toggle menu</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent 
+                  align="end" 
+                  className="w-56 bg-popover border-border shadow-xl mt-2"
+                  sideOffset={10}
+                >
+                  <DropdownMenuLabel className="font-semibold text-muted-foreground">Navigation</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {/* Main nav items for mobile */}
+                  {mainNavItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <DropdownMenuItem
+                        key={`menu-${item.id}`}
+                        onClick={() => {
+                          setCurrentPage(item.id);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`flex items-center space-x-2 py-2 px-3 text-sm font-medium transition-colors ${
+                          currentPage === item.id 
+                            ? 'bg-primary/10 text-primary' 
+                            : 'text-foreground hover:bg-accent hover:text-accent-foreground'
+                        }`}
+                        aria-current={currentPage === item.id ? "page" : undefined}
+                      >
+                        <Icon className={`w-4 h-4 ${
+                          currentPage === item.id 
+                            ? 'text-primary' 
+                            : 'text-muted-foreground group-hover:text-accent-foreground'
+                        }`} />
+                        <span>{item.label}</span>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                  
+                  {mainNavItems.length > 0 && menuNavItems.length > 0 && <DropdownMenuSeparator />}
 
-
-                {menuNavItems.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <DropdownMenuItem 
-                      key={item.id} 
-                      onClick={() => {
-                        setCurrentPage(item.id);
-                        setIsMenuOpen(false);
-                      }}
-                      className={`flex items-center space-x-2 py-2 px-3 text-sm font-medium transition-colors ${currentPage === item.id ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-accent hover:text-accent-foreground'}`}
-                      aria-current={currentPage === item.id ? "page" : undefined}
-                    >
-                      <Icon className={`w-4 h-4 ${currentPage === item.id ? 'text-primary' : 'text-muted-foreground group-hover:text-accent-foreground'}`} />
-                      <span>{item.label}</span>
-                    </DropdownMenuItem>
-                  );
-                })}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  {/* Menu nav items */}
+                  {menuNavItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <DropdownMenuItem 
+                        key={item.id} 
+                        onClick={() => {
+                          setCurrentPage(item.id);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`flex items-center space-x-2 py-2 px-3 text-sm font-medium transition-colors ${
+                          currentPage === item.id 
+                            ? 'bg-primary/10 text-primary' 
+                            : 'text-foreground hover:bg-accent hover:text-accent-foreground'
+                        }`}
+                        aria-current={currentPage === item.id ? "page" : undefined}
+                      >
+                        <Icon className={`w-4 h-4 ${
+                          currentPage === item.id 
+                            ? 'text-primary' 
+                            : 'text-muted-foreground group-hover:text-accent-foreground'
+                        }`} />
+                        <span>{item.label}</span>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </nav>
         </div>
       </div>
