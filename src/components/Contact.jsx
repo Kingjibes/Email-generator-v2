@@ -80,7 +80,7 @@ const Contact = () => {
             Navigate to Hackerpro
           </motion.h1>
           <motion.p 
-            className="text-lg text-foreground max-w-2xl mx-auto font-medium" /* Changed from text-muted-foreground */
+            className="text-lg text-foreground max-w-2xl mx-auto font-medium"
             initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{delay:0.2, duration: 0.5}}
           >
             Have questions, feedback, or a collaboration idea? Hackerpro is ready to chart a course with you. 
@@ -99,7 +99,7 @@ const Contact = () => {
                   <MessageSquareText className="w-5 h-5 mr-2" />
                   Send a Message in a Bottle
                 </CardTitle>
-                <CardDescription className="text-foreground/90 font-medium"> {/* Bolder description text */}
+                <CardDescription className="text-foreground/90 font-medium">
                   Your feedback and inquiries are treasures. Fill this form and hit "Launch Message" to open your email client.
                 </CardDescription>
               </CardHeader>
@@ -157,12 +157,12 @@ const Contact = () => {
                   <img  
                     class="w-20 h-20 rounded-full border-2 border-accent object-cover mx-auto shadow-lg"
                     alt="Hackerpro profile"
-                   src="https://images.unsplash.com/photo-1680520281957-6b9d599a8d79" />
+                   src="https://images.unsplash.com/photo-1666014214619-b0a572963b88" />
                 </motion.div>
                 <h3 className="text-xl font-semibold text-primary mb-1">
                   Hackerpro
                 </h3>
-                <p className="text-sm text-foreground mb-4 font-medium"> {/* Bolder description text */}
+                <p className="text-sm text-foreground mb-4 font-medium">
                   Captain of CipherMail & Full-Stack Navigator
                 </p>
                 <div className="flex justify-center space-x-3">
