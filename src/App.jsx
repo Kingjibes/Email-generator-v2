@@ -15,47 +15,23 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'generator':
-        return <EmailGenerator key="generator-page" />;
+        return <EmailGenerator key="generator" />;
       case 'about':
-        return <About key="about-page" />;
+        return <About key="about" />;
       case 'contact':
-        return <Contact key="contact-page" />;
+        return <Contact key="contact" />;
       default:
-        return <EmailGenerator key="default-generator-page" />;
+        return <EmailGenerator key="default-generator" />;
     }
-  };
-
-  const pageVariants = {
-    initial: { opacity: 0, y: 20, scale: 0.98 },
-    in: { opacity: 1, y: 0, scale: 1 },
-    out: { opacity: 0, y: -20, scale: 0.98 }
-  };
-
-  const pageTransition = {
-    type: "tween",
-    ease: "anticipate",
-    duration: 0.5
   };
 
   return (
     <div className="min-h-screen text-foreground flex flex-col overflow-x-hidden bg-background">
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       
-      <div className="flex-grow">
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={currentPage} 
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageVariants}
-            transition={pageTransition}
-            className="w-full"
-          >
-            {renderPage()}
-          </motion.main>
-        </AnimatePresence>
-      </div>
+      <main className="flex-grow w-full">
+         {renderPage()}
+      </main>
       
       <motion.footer 
         initial={{ opacity: 0 }}
