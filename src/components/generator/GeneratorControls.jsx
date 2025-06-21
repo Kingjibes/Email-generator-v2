@@ -172,4 +172,3 @@ const GeneratorControls = ({
 };
 
 export default GeneratorControls;
-              
